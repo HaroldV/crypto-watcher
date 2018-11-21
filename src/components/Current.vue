@@ -29,16 +29,14 @@ export default {
 </script>
 
 <style scoped>
+div p { font-size: 2rem; }
+h2 { font-size: 1.5em; }
 .currency {
   border: 1px solid #F5CE00;
   border-radius: 15px;
-  padding: 2em 0em;
-  display: inline-block;
-  width: 50%;
+  padding: 2em 1em;
+  display: inline-block; 
+  margin: 5px; 
 }
-
-div p { font-size: 2rem; }
-
-h2 { font-size: 1.5em; }
 </style>
 

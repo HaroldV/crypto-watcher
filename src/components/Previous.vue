@@ -51,7 +51,7 @@ export default {
       border: 1px solid #F5CE00;
       padding: 2em 0em;
       max-width: 90%;
-      margin: 3px auto;
+      margin: 5px auto;
 }
 #first p, #second p, #third p, #fourth p, #fifth p {
   display: inline-block;

@@ -3,7 +3,7 @@
     <header class="hero">
       <div class="bar logo">
         <h3>CryptoWatcher</h3>
-        <span class="monitor"><span class="monitorText" @click="fetchDataForToday(currentCurrency)">Actualizar</span></span>
+        <span class="monitor"><span class="monitorText" @click="cryptoToday(currentCurrency)">Actualizar</span></span>
       </div>
       <h1>PWA en Tiempo Real que muestra actualizaciones en Criptomonedas</h1>
       <h2>Bitcoin, Digibyte, Siacoin</h2>
@@ -48,7 +48,7 @@ export default {
   },
   
   methods: {
-    fetchDataFor: (key, daysAgo,previousCurrency) => {              
+    cryptoFor: (key, daysAgo,previousCurrency) => {              
       var date = moment().subtract(daysAgo,'days').unix()              
       let fetch = (curr, date) => axios.get(`https://min-api.cryptocompare.com/data/pricehistorical?fsym=${curr}&tsyms=USD&ts=${date}`)
     
@@ -65,7 +65,7 @@ export default {
         }))
     },
     
-    fetchDataForToday: (currentCurrency) => {    
+    cryptoToday: (currentCurrency) => {    
       let url = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,DGB,SC&tsyms=USD'                  
       axios.get(url).then(res => {        
         localStorage.setItem('BTC', currentCurrency.BTC = res.data.BTC.USD)
@@ -104,12 +104,12 @@ export default {
         fiveDays: JSON.parse(localStorage.getItem('fiveDaysPrices')),
       }
     } else {      
-      this.fetchDataFor('yesterday', 1,this.previousCurrency)
-      this.fetchDataFor('twoDays', 2,this.previousCurrency)
-      this.fetchDataFor('threeDays', 3,this.previousCurrency)
-      this.fetchDataFor('fourDays', 4,this.previousCurrency)
-      this.fetchDataFor('fiveDays', 5,this.previousCurrency)
-      this.fetchDataForToday(this.currentCurrency)
+      this.cryptoFor('yesterday', 1,this.previousCurrency)
+      this.cryptoFor('twoDays', 2,this.previousCurrency)
+      this.cryptoFor('threeDays', 3,this.previousCurrency)
+      this.cryptoFor('fourDays', 4,this.previousCurrency)
+      this.cryptoFor('fiveDays', 5,this.previousCurrency)
+      this.cryptoToday(this.currentCurrency)
     }
   }
 }
