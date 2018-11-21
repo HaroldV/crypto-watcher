@@ -1,7 +1,14 @@
 <template>
-  <div>
-    <intro></intro>
-    <div id="body">
+  <div>    
+    <header class="hero">
+      <div class="bar logo">
+        <h3>CryptoWatcher</h3>
+        <span class="monitor"><span class="monitorText" @click="fetchDataForToday(currentCurrency)">Actualizar</span></span>
+      </div>
+      <h1>PWA en Tiempo Real que muestra actualizaciones en Criptomonedas</h1>
+      <h2>Bitcoin, Digibyte, Siacoin</h2>
+    </header>      
+    <div id="body">      
       <div id="current">
         <current :currentCurrency="currentCurrency"> </current>
       </div>
@@ -13,7 +20,6 @@
 </template>
 
 <script>
-import Intro from '@/components/Intro'
 import Current from '@/components/Current'
 import Previous from '@/components/Previous'
 import moment from 'moment'
@@ -22,7 +28,7 @@ import Pusher from 'pusher-js'
 
 export default {  
   name: 'app',  
-  components: { Intro, Current, Previous },
+  components: { Current, Previous },
   
   data () {
     return {
@@ -59,7 +65,7 @@ export default {
         }))
     },
     
-    fetchDataForToday: (currentCurrency) => {
+    fetchDataForToday: (currentCurrency) => {    
       let url = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,DGB,SC&tsyms=USD'                  
       axios.get(url).then(res => {        
         localStorage.setItem('BTC', currentCurrency.BTC = res.data.BTC.USD)
@@ -139,4 +145,39 @@ a:visited { color: #000000; }
 }
 #current { padding: 2em 0em; }
 #previous { padding: 2em 0em; }
+header {
+    background: linear-gradient(to bottom right, rgb(0, 193, 131),rgb(50, 72, 95));
+    padding: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    height: 300px;
+    color: #fff;
+}
+header h3 {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    float: left;
+}
+bar { padding: 20px; height: 48px; }
+.monitor{
+    text-transform: uppercase;
+    float:right;
+    background-color: rgba(255, 255, 255, 0.2);
+    line-height: 23px;
+    border-radius: 25px;
+    width: 175px;
+    height: 48px;
+    margin: auto;
+}
+.monitor:hover, monitorText:hover { cursor:pointer; }
+.monitorText{
+    width: 104px;
+    height: 23px;
+    font-weight: bold;
+    line-height: 50px;
+    font-size: 14px;
+}
+header h1 { padding-top: 80px;  margin: auto; }
+header h2{ padding-top:20px; }
 </style>
