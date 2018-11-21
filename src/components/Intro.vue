@@ -6,7 +6,7 @@
     </div>
     <h1>PWA en Tiempo Real que muestra actualizaciones en Criptomonedas</h1>
     <h2>Bitcoin, Digibyte, Siacoin</h2>
-  </header>
+  </header>  
 </template>
 
 <script>
