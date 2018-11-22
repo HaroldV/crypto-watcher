@@ -1,11 +1,6 @@
-## 1.0.1 (2018-11-21)
+## 1.0.1 (2018-11-22)
 
 ##### New Features
 
-<!-- * **cli:** generate changelog ([c164cff8](https://github.com/lob/generate-changelog/commit/c164cff8)) -->
-
-<!-- ##### Bug Fixes -->
-
-<!-- * **cli:** prepend to a file instead of printing to stdout ([92e1085d](https://github.com/lob/generate-changelog/commit/92e1085d)) -->
-<!-- * **writer:** group all uncommon types together ([10caf5f2](https://github.com/lob/generate-changelog/commit/10caf5f2)) -->
+* add search currency ([091bf726](https://github.com/HaroldV/crypto-watcher/tree/091bf7260ecb0b7415e768fa5936fd757bd625dd))
 
