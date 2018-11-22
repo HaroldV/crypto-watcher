@@ -5,7 +5,7 @@
       <label > 1 BTC</label>
       <p>${{currentCurrency.BTC}}</p>
     </div>
-    <div id="eth" class="currency">
+    <div id="dgb" class="currency">
       <label > 1 DGB</label>
       <p>${{currentCurrency.DGB}}</p>
     </div>
