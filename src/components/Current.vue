@@ -13,6 +13,14 @@
       <label > 1 SC</label>
       <p>${{currentCurrency.SC}}</p>
     </div>
+    <div id="eth" class="currency">
+      <label > 1 ETH</label>
+      <p>${{currentCurrency.ETH}}</p>
+    </div>
+    <div id="ltc" class="currency">
+      <label > 1 LTC</label>
+      <p>${{currentCurrency.LTC}}</p>
+    </div>
   </div>
 </template>
 

@@ -6,31 +6,41 @@
       <p><label> 1 BTC:</label> {{ previousCurrency.yesterday.BTC }} </p>
       <p><label> 1 DGB:</label> {{ previousCurrency.yesterday.DGB }} </p>
       <p><label> 1 SC:</label> {{ previousCurrency.yesterday.SC }} </p>
+      <p><label> 1 ETH:</label> {{ previousCurrency.fiveDays.ETH }} </p>
+      <p><label> 1 LTC:</label> {{ previousCurrency.fiveDays.LTC }} </p>
     </div>    
     <div id="second">
       <h2>Fecha: {{ previousCurrency.twoDays.DATE }}</h2>
       <p><label> 1 BTC:</label> {{ previousCurrency.twoDays.BTC }} </p>
       <p><label> 1 DGB:</label> {{ previousCurrency.twoDays.DGB }} </p>
       <p><label> 1 SC:</label> {{ previousCurrency.twoDays.SC }} </p>
+      <p><label> 1 ETH:</label> {{ previousCurrency.fiveDays.ETH }} </p>
+      <p><label> 1 LTC:</label> {{ previousCurrency.fiveDays.LTC }} </p>
     </div>    
     <div id="third">
       <h2>Fecha: {{ previousCurrency.threeDays.DATE }}</h2>
       <p><label> 1 BTC:</label> {{ previousCurrency.threeDays.BTC }} </p>
       <p><label> 1 DGB:</label> {{ previousCurrency.threeDays.DGB }} </p>
       <p><label> 1 SC:</label> {{ previousCurrency.threeDays.SC }} </p>
+      <p><label> 1 ETH:</label> {{ previousCurrency.fiveDays.ETH }} </p>
+      <p><label> 1 LTC:</label> {{ previousCurrency.fiveDays.LTC }} </p>
     </div>    
     <div id="fourth">
       <h2>Fecha: {{ previousCurrency.fourDays.DATE }}</h2>
       <p><label> 1 BTC:</label> {{ previousCurrency.fourDays.BTC }} </p>
       <p><label> 1 DGB:</label> {{ previousCurrency.fourDays.DGB }} </p>
       <p><label> 1 SC:</label> {{ previousCurrency.fourDays.SC }} </p>
+      <p><label> 1 ETH:</label> {{ previousCurrency.fiveDays.ETH }} </p>
+      <p><label> 1 LTC:</label> {{ previousCurrency.fiveDays.LTC }} </p>
     </div>    
     <div id="fifth">
       <h2>Fecha: {{ previousCurrency.fiveDays.DATE }}</h2>
       <p><label> 1 BTC:</label> {{ previousCurrency.fiveDays.BTC }} </p>
       <p><label> 1 DGB:</label> {{ previousCurrency.fiveDays.DGB }} </p>
       <p><label> 1 SC:</label> {{ previousCurrency.fiveDays.SC }} </p>
-    </div>    
+      <p><label> 1 ETH:</label> {{ previousCurrency.fiveDays.ETH }} </p>
+      <p><label> 1 LTC:</label> {{ previousCurrency.fiveDays.LTC }} </p>
+    </div>        
   </div>
 </template>
 
@@ -40,9 +50,7 @@ export default {
   props: {
     previousCurrency: { type: Object }
   },
-  data () {
-    return {}
-  }
+  data () { return {} }
 }
 </script>
 

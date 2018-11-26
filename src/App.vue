@@ -6,7 +6,7 @@
         <span class="monitor"><span class="monitorText" @click="cryptoToday(currentCurrency)">Actualizar</span></span>
       </div>
       <h1>PWA en Tiempo Real que muestra actualizaciones en Criptomonedas</h1>
-      <h2>Bitcoin, Digibyte, Siacoin</h2>
+      <h2>Bitcoin, Digibyte, Siacoin, Ethereum, </h2>
     </header>      
     <div id="body">      
       <input type="text" placeholder="Search and press enter" v-model="searchCurrency" @keypress.enter="searchByCrypto(upper($event))">      
@@ -38,6 +38,8 @@ export default {
           BTC: '',
           DGB: '',
           SC: '',
+          ETH: '',
+          LTC: '',
       },      
       previousCurrency: {
           yesterday: {},
@@ -60,16 +62,22 @@ export default {
       this.currentCurrency = {
         BTC: data.coin.BTC.USD, 
         DGB: data.coin.DGB.USD, 
-        SC: data.coin.SC.USD
+        SC: data.coin.SC.USD,
+        ETH: data.coin.ETH.USD,
+        LTC: data.coin.LTC.USD
       }
     });
 
     if (! navigator.onLine) {
+      
       this.currentCurrency = {
         BTC: localStorage.getItem('BTC'),
         DGB: localStorage.getItem('DGB'),
         SC: localStorage.getItem('SC'),
+        ETH: localStorage.getItem('ETH'),
+        LTC: localStorage.getItem('LTC'),
       }            
+    
       this.previousCurrency = {
         yesterday:  JSON.parse(localStorage.getItem('yesterdayPrices')),
         twoDays:    JSON.parse(localStorage.getItem('twoDaysPrices')),
@@ -77,6 +85,7 @@ export default {
         fourDays:   JSON.parse(localStorage.getItem('fourDaysPrices')),
         fiveDays:   JSON.parse(localStorage.getItem('fiveDaysPrices')),
       }
+    
     } else {      
       this.cryptoFor('yesterday', 1,this.previousCurrency)
       this.cryptoFor('twoDays', 2,this.previousCurrency)
@@ -93,12 +102,14 @@ export default {
       let fetch = (curr, date) => axios.get(`https://min-api.cryptocompare.com/data/pricehistorical?fsym=${curr}&tsyms=USD&ts=${date}`)
     
       axios
-        .all([fetch('BTC', date), fetch('DGB', date), fetch('SC', date)])
-        .then(axios.spread((BTC, DGB, SC) => {
+        .all([fetch('BTC', date), fetch('DGB', date), fetch('SC', date), fetch('ETH', date), fetch('LTC', date)])
+        .then(axios.spread((BTC, DGB, SC, ETH, LTC) => {
           previousCurrency[key] = {
             BTC: BTC.data.BTC.USD,
             SC: SC.data.SC.USD,
             DGB: DGB.data.DGB.USD,
+            ETH: ETH.data.ETH.USD,
+            LTC: LTC.data.LTC.USD,
             DATE: moment.unix(date).format("MMMM Do YYYY"),
           }
           localStorage.setItem(`${key} Prices`, JSON.stringify(previousCurrency[key]))
@@ -106,11 +117,13 @@ export default {
     },
     
     cryptoToday: (currentCurrency) => {    
-      let url = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,DGB,SC&tsyms=USD'                  
-      axios.get(url).then(res => {        
+      let url = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,DGB,SC,ETH,LTC&tsyms=USD'                  
+      axios.get(url).then(res => {                
         localStorage.setItem('BTC', currentCurrency.BTC = res.data.BTC.USD)
         localStorage.setItem('DGB', currentCurrency.DGB = res.data.DGB.USD)
         localStorage.setItem('SC', currentCurrency.SC = res.data.SC.USD)
+        localStorage.setItem('ETH', currentCurrency.ETH = res.data.ETH.USD)
+        localStorage.setItem('LTC', currentCurrency.LTC = res.data.LTC.USD)
       })      
     },
 
