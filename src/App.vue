@@ -3,9 +3,9 @@
     <header class="hero">
       <div class="bar logo">
         <h3>CryptoWatcher</h3>
-        <span class="monitor"><span class="monitorText" @click="cryptoToday(currentCurrency)">Actualizar</span></span>
+        <span class="monitor"><span class="monitorText" @click="cryptoToday(currentCurrency)">Update</span></span>
       </div>
-      <h1>PWA en Tiempo Real que muestra actualizaciones en Criptomonedas</h1>
+      <h1>Real-time PWA showing updates in Cryptocurrencies</h1>
       <h2>Bitcoin, Digibyte, Siacoin, Ethereum, </h2>
     </header>      
     <div id="body">      

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Precios actuales de las Cryptomonedas</h2>
+    <h2>Current prices</h2>
     <div id="btc" class="currency">
       <label > 1 BTC</label>
       <p>${{currentCurrency.BTC}}</p>
